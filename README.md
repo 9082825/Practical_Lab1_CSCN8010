@@ -84,6 +84,6 @@ Dataset must include:
 ## 📂 Outputs  
 - **Logs** → `results/logs.csv`  
 - **Plots** → `results/regression_plots/`  
-- **Notebook** → `analysis.ipynb` (step-by-step workflow)  
+- **Notebook** → `main.ipynb` 
 
 ---
