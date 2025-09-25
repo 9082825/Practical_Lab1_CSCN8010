@@ -5,22 +5,21 @@ This project processes sensor data (time-series, multiple axes) to detect anomal
 
 ---
 
-## ⚡ Workflow  
+##  Workflow  
 
 ### 1. Data Ingestion  
-- **From DB (Neon.tech PostgreSQL)** using SQLAlchemy/psycopg2.  
-- **From CSV**: `data/RMBR4-2_export_test.csv`.  
+- **From DB (Neon.tech PostgreSQL)** using SQLAlchemy/psycopg2.   
 
-Dataset must include:  
+Dataset includes:  
 - A **time column**  
 - Multiple **axis columns** (`Axis1`–`Axis8`)  
 
 ---
 
 ### 2. Preprocessing  
-- Convert `time` → datetime  
-- Sort by time  
-- Handle missing values (drop/fill)  
+- Converted `time` → datetime  
+- Sorted by time  
+- Handled missing values (drop/fill)  
 - Scale values:  
   - **Min-Max** `[0,1]`  
   - **Z-score** `(x - mean) / std`  
@@ -31,18 +30,18 @@ Dataset must include:
 - Fit **Linear Regression** per axis:  
   - `X` = time (index)  
   - `y` = sensor readings  
-- Save slope & intercept  
-- Plot scatter + regression line  
+- Saved slope & intercept  
+- Ploted scatter + regression lines  
 
 ---
 
 ### 4. Residual Analysis  
-- Compute residuals = observed – predicted  
-- Visualize:  
+- Computed residuals = observed – predicted  
+- Visualized:  
   - Scatter plot  
   - Histogram  
   - Boxplot  
-- Identify **outliers**  
+- Identified **outliers**  
 
 ---
 
@@ -66,22 +65,22 @@ Dataset must include:
 ---
 
 ### 7. Synthetic Data  
-- Generate test data with same mean/std as training data  
-- Inject spikes to simulate anomalies  
-- Validate pipeline  
+- Generated test data with same mean/std as training data  
+- Injected spikes to simulate anomalies  
+- Validated pipeline  
 
 ---
 
 ### 8. Visualization  
 - For each axis:  
   - Raw data + regression line  
-  - Alerts 🟠 & Errors 🔴  
+  - Alerts  & Errors 
 - Residual plots with thresholds  
 - Saved in: `results/regression_plots/`  
 
 ---
 
-## 📂 Outputs  
+##  Outputs  
 - **Logs** → `results/logs.csv`  
 - **Plots** → `results/regression_plots/`  
 - **Notebook** → `main.ipynb` 
